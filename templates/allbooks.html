@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Files</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        li:hover {
+            background-color: #e0e0e0;
+            cursor: pointer;
+        }
+        .file-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .file-title {
+            font-weight: bold;
+        }
+        .file-actions {
+            display: flex;
+            align-items: center;
+        }
+        .file-action {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .file-action:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Uploaded Files</h1>
+        <ul>
+            {% for book  in all %}
+                <li>
+                    <div class="file-details">
+                        <span class="file-title">{{ book.title }}</span>
+                        <span>Publish Year: {{ book.year_publish }}</span>
+                    </div>
+                    <div class="file-actions">
+                        {% comment %} <a href="{{ book.file.url }}" class="file-action" target="_blank">View</a>
+                        <a href="{{ book.file.url }}" class="file-action" download>Download</a> {% endcomment %}
+                    </div>
+                </li>
+            {% empty %}
+                <li>No files uploaded yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
