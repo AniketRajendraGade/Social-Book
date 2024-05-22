@@ -29,7 +29,7 @@ urlpatterns = [
     path('allbooks/',views.allbooks, name='allbooks'),
     path('userBook/',views.uploaded_books, name='uploaded_books'),
     path('logout/', views.logout_view, name='logout'),
-    path('display/', views.fetch_and_display, name='fetch_and_display'),
+    # path('display/', views.fetch_and_display, name='fetch_and_display'),
     #bulk data save from excel
     path('bulk/', views.bulkdata, name='bulkdata'),
     # app tokens urls
