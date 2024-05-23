@@ -32,7 +32,7 @@ urlpatterns = [
     path('display/', views.fetch_and_display, name='fetch_and_display'),
     #bulk data save from excel
     path('bulk/', views.bulkdata, name='bulkdata'),
-    # app tokens urls
+    # Redirect to Tokens Apps Urls
     path('tokens/', include('tokens.urls')),
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
