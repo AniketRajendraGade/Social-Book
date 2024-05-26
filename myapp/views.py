@@ -98,35 +98,35 @@ def fetch_and_display(request):
 
 
 # #bulk data send to database from excel
-# @csrf_exempt
-# def bulkdata(request):
-#     start_time = time.time()
-#     excel_file_path = r'C:\Users\Administrator\Downloads\bq-results-20240429-053135-1714368881260.csv'
+@csrf_exempt
+def bulkdata(request):
+    start_time = time.time()
+    excel_file_path = r'C:\Users\Administrator\Downloads\bq-results-20240429-053135-1714368881260.csv'
 
-#     df = pd.read_csv(excel_file_path, encoding='utf-8')
-#     print("read data..")
-#     # Convert DataFrame to list of dictionaries
-#     data = df.to_dict(orient='records')
+    df = pd.read_csv(excel_file_path, encoding='utf-8')
+    print("read data..")
+    # Convert DataFrame to list of dictionaries
+    data = df.to_dict(orient='records')
 
-#     print("savaing data..")
-#     # Add necessary fields to each dictionary
-#     for item in data:
-#         item.update({
-#             'mobile_number': item['Mobile'],
-#             'Pincode': item['Pincode'],
-#             'Name': item['Name'],  
-#             'Address': item['Address'],
-#             'WhatsApp_Status': item['WhatsApp_Status'],
-#             'Blaster_Status': item['Blaster_Status'],
-#         })
+    print("savaing data..")
+    # Add necessary fields to each dictionary
+    for item in data:
+        item.update({
+            'mobile_number': item['Mobile'],
+            'Pincode': item['Pincode'],
+            'Name': item['Name'],  
+            'Address': item['Address'],
+            'WhatsApp_Status': item['WhatsApp_Status'],
+            'Blaster_Status': item['Blaster_Status'],
+        })
 
-#     # Bulk create objects in database within a transaction
-#     with transaction.atomic():
-#         BulkData.objects.bulk_create([BulkData(**item) for item in data])
-#     end_time = time.time()  # Record end time
-#     time_taken = end_time - start_time
-#     print("Time taken to send data to database:", time_taken, "seconds")
-#     return BulkData("Data saved successfully")
+    # Bulk create objects in database within a transaction
+    with transaction.atomic():
+        BulkData.objects.bulk_create([BulkData(**item) for item in data])
+    end_time = time.time()  # Record end time
+    time_taken = end_time - start_time
+    print("Time taken to send data to database:", time_taken, "seconds")
+    return BulkData("Data saved successfully")
 
 
 
