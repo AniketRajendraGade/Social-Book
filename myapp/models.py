@@ -40,7 +40,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
     
-
+#upload books model
 class Books(models.Model):
   user_id = models.IntegerField(null=True)
   title = models.CharField(max_length=255)
