@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #Refister Page
     path('',views.register, name='register'),
     path('login/',views.login_view, name='login'),
     path('home/',views.home, name='home'),
