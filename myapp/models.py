@@ -54,7 +54,7 @@ class Books(models.Model):
 
 
 
-
+# Bulk Data Sample Model
 class BulkData(models.Model):
     Mobile = models.CharField(max_length=200)  
     Pincode = models.CharField(max_length=200)
