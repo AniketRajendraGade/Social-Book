@@ -18,7 +18,7 @@ class RegisterView(APIView):
         serializer.save()
         return Response(serializer.data)
     
-
+#Login
 class LoginView(APIView):
     def post(self,request):
         email=request.data['email']
