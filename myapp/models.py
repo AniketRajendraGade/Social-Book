@@ -5,7 +5,7 @@ from datetime import date
 from .managers import CustomUserManager
 from django.utils.translation import gettext_lazy as _
 
-
+#CustomUser Model
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     gender_choice = [
       ("Male", "Male"),
