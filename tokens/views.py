@@ -79,7 +79,7 @@ class LogoutView(APIView):
         }
         return response
     
-
+#Emial Sending Functionalaty
 def sendEmail(email):
     subject = "About login"
     message = f"You have loged in "
