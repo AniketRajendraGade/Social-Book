@@ -161,5 +161,5 @@ def bulkdata(request):
 
 
 
-# @csrf_exes/ta(request):
+
  
