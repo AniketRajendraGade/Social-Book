@@ -130,34 +130,34 @@ def bulkdata(request):
 
 
 
-@csrf_exempt
-def bulkdata(request):
-    start_time = time.time()
-    excel_file_path = r'C:\Users\Administrator\Downloads\bq-results-20240429-050336-1714367055093.csv'
+# @csrf_exempt
+# def bulkdata(request):
+#     start_time = time.time()
+#     excel_file_path = r'C:\Users\Administrator\Downloads\bq-results-20240429-050336-1714367055093.csv'
 
-    df = pd.read_csv(excel_file_path, encoding='utf-8')
-    print("Read data from CSV file")
+#     df = pd.read_csv(excel_file_path, encoding='utf-8')
+#     print("Read data from CSV file")
 
-    # Convert DataFrame to list of dictionaries
-    data = df.to_dict(orient='records')
+#     # Convert DataFrame to list of dictionaries
+#     data = df.to_dict(orient='records')
 
-    # Add necessary fields to each dictionary
-    for item in data:
-        item.update({
-            'Mobile': item['Mobile'],
-            'Pincode': item['Pincode'],
-            'Name': item['Name'],  
-            'Address': item['Address'],
+#     # Add necessary fields to each dictionary
+#     for item in data:
+#         item.update({
+#             'Mobile': item['Mobile'],
+#             'Pincode': item['Pincode'],
+#             'Name': item['Name'],  
+#             'Address': item['Address'],
             
-        })
+#         })
 
-    # Bulk create objects in database within a transaction
-    with transaction.atomic():
-        BulkData.objects.bulk_create([BulkData(**item) for item in data])
-    end_time = time.time()  # Record end time
-    time_taken = end_time - start_time
-    print("Time taken to send data to database:", time_taken, "seconds")
-    return JsonResponse({"message": "Data saved successfullyyyyy"})
+#     # Bulk create objects in database within a transaction
+#     with transaction.atomic():
+#         BulkData.objects.bulk_create([BulkData(**item) for item in data])
+#     end_time = time.time()  # Record end time
+#     time_taken = end_time - start_time
+#     print("Time taken to send data to database:", time_taken, "seconds")
+#     return JsonResponse({"message": "Data saved successfullyyyyy"})
 
 
 
