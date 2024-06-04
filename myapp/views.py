@@ -158,3 +158,66 @@ def bulkdata(request):
     time_taken = end_time - start_time
     print("Time taken to send data to database:", time_taken, "seconds")
     return JsonResponse({"message": "Data saved successfullyyyyy"})
+
+
+
+@csrf_exempt
+def bulkdata(request):
+    start_time = time.time()
+    excel_file_path = r'C:\Users\Administrator\Downloads\bq-results-20240429-053135-1714368881260.csv'
+
+    df = pd.read_csv(excel_file_path, encoding='utf-8')
+    print("read data..")
+    # Convert DataFrame to list of dictionaries
+    data = df.to_dict(orient='records')
+
+    print("savaing data..")
+    # Add necessary fields to each dictionary
+    for item in data:
+        item.update({
+            'emp_id': item['emp_id'],
+            'name': item['name'],
+            'address': item['address'],  
+            'city': item['city'],
+            'state': item['state'],
+            'personal_contact': item['personal_contact'],
+            'dob': item['dob'],
+            'doj': item['doj'],
+            'zip': item['zip'],
+            'role_position': item['role_position'],
+            'manager': item['manager'],
+            'joined_date': item['joined_date'],
+            'email': item['email'],
+            'markytics_email   ': item['markytics_email'],
+            'password': item['password'],
+            'is_employee': item['is_employee'],
+            'is_manager': item['is_manager'],
+            'is_active': item['is_active'],
+            'is_superadmin': item['is_superadmin'],
+            'is_admin': item['is_admin'],
+            'fresher': item['fresher'],
+            'intern': item['intern'],
+            'clickup_id': item['clickup_id'],
+            'pan': item['pan'],
+            'aadhar': item['aadhar'],
+            'current_address_proof': item['current_address_proof'],
+            'tenth_certificate': item['tenth_certificate'],
+            'twelfth_certificate': item['twelfth_certificate'],
+            'reference1_name': item['last_company_experience_proof'],
+            'reference1_email': item['reference1_email'],
+            'reference1_contact': item['reference1_contact'],
+            'reference2_name': item['reference2_name'],
+            'reference2_company': item['reference2_company'],
+            'reference2_email': item['reference2_email'],
+            'reference2_contact': item['reference2_contact'],
+            'teamlogger_id': item['teamlogger_id'],
+            'manager_id': item['manager_id'],
+        })
+
+    # Bulk create objects in database within a transaction
+    with transaction.atomic():
+        BulkData.objects.bulk_create([BulkData(**item) for item in data])
+    end_time = time.time()  # Record end time
+    time_taken = end_time - start_time
+    print("Time taken to send data to database:", time_taken, "seconds")
+    return BulkData("Data saved successfully")
