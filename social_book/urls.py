@@ -36,4 +36,4 @@ urlpatterns = [
     # Redirect to Tokens Apps Urls
     path('tokens/', include('tokens.urls')),
     
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # media files on this position
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
