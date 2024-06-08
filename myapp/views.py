@@ -86,13 +86,13 @@ def logout_view(request):
     logout(request)
     return redirect('register')
 
-# @login_required
-# def fetch_and_display(request):
-#     engine = create_engine('mysql://root:root@localhost:3306/books')  
-#     with engine.connect() as connection:
-#         query=text("SELECT * FROM myapp_books")
-#         result = connection.execute(query)
-#         data = result.fetchall()
+@login_required
+def fetch_and_display(request):
+    engine = create_engine('mysql://root:root@localhost:3306/books')  
+    with engine.connect() as connection:
+        query=text("SELECT * FROM myapp_books")
+        result = connection.execute(query)
+        data = result.fetchall()
 #     return render(request, 'data_display.html', {'data': data})
 
 
