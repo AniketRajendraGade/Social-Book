@@ -97,7 +97,7 @@ def fetch_and_display(request):
 
 
 
-#bulk data send to database from excel in lakhs
+#bulk data send to database from excel 
 @csrf_exempt
 def bulkdata(request):
     start_time = time.time()
