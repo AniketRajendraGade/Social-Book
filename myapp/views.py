@@ -113,10 +113,10 @@ def bulkdata(request):
     for item in data:
         item.update({
             'mobile_number': item['Mobile'],
-            'Pincode': item['Pincode'],
-            'Name': item['Name'],  
-            'Address': item['Address'],
-            'WhatsApp_Status': item['WhatsApp_Status'],
+            # 'Pincode': item['Pincode'],
+            # 'Name': item['Name'],  
+            # 'Address': item['Address'],
+            # 'WhatsApp_Status': item['WhatsApp_Status'],
             'Blaster_Status': item['Blaster_Status'],
         })
 
