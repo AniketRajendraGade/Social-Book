@@ -99,7 +99,7 @@ def fetch_and_display(request):
 
 #bulk data send to database from excel 
 @csrf_exempt
-def bulkdata(request):
+# def bulkdata(request):
     start_time = time.time()
     excel_file_path = r'C:\Users\Administrator\Downloads\bq-results-20240429-053135-1714368881260.csv'
 
