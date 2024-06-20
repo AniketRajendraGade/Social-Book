@@ -125,8 +125,8 @@ def bulkdata(request):
         BulkData.objects.bulk_create([BulkData(**item) for item in data])
     end_time = time.time()  # Record end time
     time_taken = end_time - start_time
-    # print("Time taken to send data to database:", time_taken, "seconds")
-    # return BulkData("Data saved successfully")
+    print("Time taken to send data to database:", time_taken, "seconds")
+    return BulkData("Data saved successfully")
 
 
 
