@@ -98,10 +98,10 @@ def fetch_and_display(request):
 
 
 #bulk data send to database from excel 
-@csrf_exempt
-def bulkdata(request):
-    start_time = time.time()
-    excel_file_path = r'C:\Users\Administrator\Downloads\bq-results-20240429-053135-1714368881260.csv'
+# @csrf_exempt
+# def bulkdata(request):
+#     start_time = time.time()
+#     excel_file_path = r'C:\Users\Administrator\Downloads\bq-results-20240429-053135-1714368881260.csv'
 
     df = pd.read_csv(excel_file_path, encoding='utf-8')
     print("read data..")
