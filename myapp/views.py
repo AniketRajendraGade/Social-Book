@@ -130,10 +130,10 @@ def bulkdata(request):
 
 
 
-# @csrf_exempt  
-# def bulkdata(request):
-#     start_time = time.time()
-#     excel_file_path = r'C:\Users\results-20240429-050336-1714367055093.csv'
+@csrf_exempt  
+def bulkdata(request):
+    start_time = time.time()
+    excel_file_path = r'C:\Users\results-20240429-050336-1714367055093.csv'
 
     # df = pd.read_csv(excel_file_path, encoding='utf-8')
     print("Read data from CSV file")
