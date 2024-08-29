@@ -14,14 +14,14 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     ]
     
     
-    # email = models.EmailField(_("email address"), unique=True)
-    # user_name = models.CharField(max_length=255, blank=True)
-    # full_name = models.CharField(max_length=255, blank=True)
-    # gender = models.CharField(choices=gender_choice, max_length=255, blank=True)
-    # city = models.CharField(max_length=255, blank=True)
-    # state = models.CharField(max_length=255, blank=True)
-    # is_staff = models.BooleanField(default=False)
-    # is_active = models.BooleanField(default=True)
+    email = models.EmailField(_("email address"), unique=True)
+    user_name = models.CharField(max_length=255, blank=True)
+    full_name = models.CharField(max_length=255, blank=True)
+    gender = models.CharField(choices=gender_choice, max_length=255, blank=True)
+    city = models.CharField(max_length=255, blank=True)
+    state = models.CharField(max_length=255, blank=True)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
     public_visibility = models.BooleanField(default=True)
     birth_year = models.PositiveIntegerField(null=True, blank=True)
