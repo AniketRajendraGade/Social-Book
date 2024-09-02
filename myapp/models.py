@@ -8,10 +8,10 @@ from django.utils.translation import gettext_lazy as _
 #CustomUser Model
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     gender_choice = [
-      ("Male", "Male"),
-      ("Female", "Female"),
-      ("Other","Other")
-    ]
+    #   ("Male", "Male"),
+    #   ("Female", "Female"),
+    #   ("Other","Other")
+    # ]
     
     
     email = models.EmailField(_("email address"), unique=True)
