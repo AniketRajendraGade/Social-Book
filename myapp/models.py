@@ -14,9 +14,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     ]
     
     
-    email = models.EmailField(_("email address"), unique=True)
-    user_name = models.CharField(max_length=255, blank=True)
-    full_name = models.CharField(max_length=255, blank=True)
+    # email = models.EmailField(_("email address"), unique=True)
+    # user_name = models.CharField(max_length=255, blank=True)
+    # full_name = models.CharField(max_length=255, blank=True)
     gender = models.CharField(choices=gender_choice, max_length=255, blank=True)
     city = models.CharField(max_length=255, blank=True)
     state = models.CharField(max_length=255, blank=True)
