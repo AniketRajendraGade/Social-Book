@@ -42,10 +42,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return self.email
     
 #upload books model
-# class Books(models.Model):
-#   user_id = models.IntegerField(null=True)
-#   title = models.CharField(max_length=255)
-#   image = models.ImageField(upload_to='cover_page/', null=True, default=None)
+class Books(models.Model):
+  user_id = models.IntegerField(null=True)
+  title = models.CharField(max_length=255)
+  image = models.ImageField(upload_to='cover_page/', null=True, default=None)
   description = models.CharField(max_length=500)
   visibility = models.BooleanField(default=True)
   cost = models.IntegerField()
