@@ -56,10 +56,10 @@ class Books(models.Model):
 
 
 # Bulk Data Sample Model
-# class BulkData(models.Model):
-#     Mobile = models.CharField(max_length=200)  
-#     Pincode = models.CharField(max_length=200)
-#     Name = models.CharField(max_length=200)
+class BulkData(models.Model):
+    Mobile = models.CharField(max_length=200)  
+    Pincode = models.CharField(max_length=200)
+    Name = models.CharField(max_length=200)
     Address = models.CharField(max_length=500)
     WhatsApp_Status = models.CharField(max_length=200)
     Blaster_Status = models.CharField(max_length=200)
