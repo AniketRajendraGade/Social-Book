@@ -157,7 +157,7 @@ def bulkdata(request):
     end_time = time.time()  # Record end time
     time_taken = end_time - start_time
     print("Time taken to send data to database:", time_taken, "seconds")
-    return JsonResponse({"message": "Data saved successfullyyyyy"})``
+    return JsonResponse({"message": "Data saved successfullyyyyy"})
 
 
 
