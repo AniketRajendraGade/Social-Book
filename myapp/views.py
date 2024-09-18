@@ -15,10 +15,10 @@ import datetime,time
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 # Create your views here.
-def register(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
+# def register(request):
+#     if request.method == 'POST':
+#         form = CustomUserCreationForm(request.POST)
+#         if form.is_valid():
             form.save()
             email = form.cleaned_data.get('email')
             messages.success(request, f'Account created for {email}!')
