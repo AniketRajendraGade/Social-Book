@@ -43,11 +43,11 @@ def login_view(request):
             form = CustomUserCreationForm()
     return render(request, 'login.html')
 
-@login_required
-def home(request):
-    user = request.user
-    all_books = Books.objects.filter(visibility=True)
-    return render(request, 'home.html', {'user': user, 'all_books': all_books})
+# @login_required
+# def home(request):
+#     user = request.user
+#     all_books = Books.objects.filter(visibility=True)
+#     return render(request, 'home.html', {'user': user, 'all_books': all_books})
 
 @login_required()
 def upload_book(request):
