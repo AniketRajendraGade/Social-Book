@@ -45,8 +45,8 @@ def login_view(request):
 
 @login_required
 def home(request):
-    # user = request.user
-    # all_books = Books.objects.filter(visibility=True)
+    user = request.user
+    all_books = Books.objects.filter(visibility=True)
     return render(request, 'home.html', {'user': user, 'all_books': all_books})
 
 @login_required()
